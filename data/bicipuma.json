@@ -1,0 +1,33 @@
+{
+  "_placeholder": true,
+  "_note": "DATOS DE EJEMPLO. Estaciones, cruces y ciclovías aproximadas e inventadas. Reemplázalas con los datos reales del mapa oficial de BiciPuma.",
+  "speed_kmh": 12,
+  "detour_factor": 1.15,
+  "nodes": [
+    { "id": "B01", "name": "Est. Metro Universidad", "lat": 19.3244, "lon": -99.1739, "station": true },
+    { "id": "B02", "name": "Est. Facultad de Ciencias", "lat": 19.3238, "lon": -99.1793, "station": true },
+    { "id": "B03", "name": "Est. Anexo de Ingeniería", "lat": 19.3275, "lon": -99.1818, "station": true },
+    { "id": "B04", "name": "Est. Facultad de Ingeniería", "lat": 19.3312, "lon": -99.1838, "station": true },
+    { "id": "B05", "name": "Est. Rectoría", "lat": 19.3326, "lon": -99.1871, "station": true },
+    { "id": "B06", "name": "Est. Facultad de Medicina", "lat": 19.3330, "lon": -99.1810, "station": true },
+    { "id": "B07", "name": "Est. Facultad de Química", "lat": 19.3285, "lon": -99.1772, "station": true },
+    { "id": "X1", "name": "Cruce 1", "lat": 19.3255, "lon": -99.1775 },
+    { "id": "X2", "name": "Cruce 2", "lat": 19.3280, "lon": -99.1800 },
+    { "id": "X3", "name": "Cruce 3", "lat": 19.3305, "lon": -99.1815 },
+    { "id": "X4", "name": "Cruce 4", "lat": 19.3325, "lon": -99.1850 }
+  ],
+  "edges": [
+    { "from": "B01", "to": "X1" },
+    { "from": "X1", "to": "B02" },
+    { "from": "X1", "to": "B07" },
+    { "from": "B07", "to": "X2" },
+    { "from": "X2", "to": "B03" },
+    { "from": "B02", "to": "B03" },
+    { "from": "X2", "to": "X3" },
+    { "from": "X3", "to": "B04" },
+    { "from": "X3", "to": "B06" },
+    { "from": "B06", "to": "X4" },
+    { "from": "B04", "to": "X4" },
+    { "from": "X4", "to": "B05" }
+  ]
+}
