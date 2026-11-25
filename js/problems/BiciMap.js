@@ -9,7 +9,7 @@
 // are never shorter than the straight line, so h never overestimates (admissible
 // and consistent) -> A*, UCS, DFBB and bidirectional are optimal.
 
-import { haversine, kmhToMpm, fmt } from '../geo.js';
+import { haversine, kmhToMpm, fmt } from '../geo.js?v=6';
 
 export class BiciMap {
   constructor(data) {

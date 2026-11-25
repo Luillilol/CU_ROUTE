@@ -1,7 +1,7 @@
 // Depth-First Search (graph search with an explored set, so it never loops).
 // Complete on finite graphs, NOT optimal: it returns the first route it stumbles on.
 
-import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js';
+import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js?v=6';
 
 export function* dfs(problem) {
   const stats = newStats();

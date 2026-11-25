@@ -10,7 +10,7 @@
 // depth at which each state was reached in the current iteration and skip
 // re-visits at an equal or greater depth.
 
-import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js';
+import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js?v=6';
 
 /** Core DLS. Returns { result, cutoff }. Shares `stats` so IDDFS can accumulate. */
 export function* depthLimited(problem, limit, stats) {

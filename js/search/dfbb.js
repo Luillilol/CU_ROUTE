@@ -7,7 +7,7 @@
 //   - bestG remembers the cheapest cost seen per state, to avoid re-exploring
 //     the same state through a more expensive path.
 
-import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js';
+import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js?v=6';
 
 export function* dfbb(problem) {
   const stats = newStats();

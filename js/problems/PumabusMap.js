@@ -3,7 +3,7 @@
 //
 // State: { stop, line, pos }   (line = pos = null before boarding)
 //   pos = position of the stop inside the route's sequence. It is needed because a
-//   route may pass the same stop twice (e.g. Ruta 6 visits Pumitas twice).
+//   route may pass the same stop twice (e.g. Route 6 visits Pumitas twice).
 // Actions:
 //   board  : (stop, null)   -> (stop, L, p)      cost = average wait of L
 //   ride   : (stop, L, p)   -> (next, L, p+1)    cost = travel time to the next stop
@@ -14,7 +14,7 @@
 //   'transfers' -> minutes + a big weight per line change (fewest transfers first)
 // Heuristic: straight-line distance / fastest bus speed (never overestimates).
 
-import { haversine, kmhToMpm, fmt } from '../geo.js';
+import { haversine, kmhToMpm, fmt } from '../geo.js?v=6';
 
 const TRANSFER_WEIGHT = 1000;
 

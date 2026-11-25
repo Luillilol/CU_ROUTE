@@ -1,9 +1,9 @@
 // User interface: Leaflet map + control panel + animation.
 // `L` (Leaflet) is loaded as a global script in index.html.
 
-import { ALGORITHMS, algorithmById, runSearch } from './search/index.js';
-import { PumabusMap } from './problems/PumabusMap.js';
-import { BiciMap } from './problems/BiciMap.js';
+import { ALGORITHMS, algorithmById, runSearch } from './search/index.js?v=6';
+import { PumabusMap } from './problems/PumabusMap.js?v=6';
+import { BiciMap } from './problems/BiciMap.js?v=6';
 
 const $ = (id) => document.getElementById(id);
 

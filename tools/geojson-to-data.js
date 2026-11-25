@@ -87,7 +87,7 @@ if (mode === 'pumabus') {
     if (stops.length < 2) console.error(`⚠ La ruta ${p.name ?? i + 1} toca menos de 2 paradas`);
     return {
       id: String(p.id ?? `R${i + 1}`),
-      name: p.name ?? `Ruta ${i + 1}`,
+      name: p.name ?? `Route ${i + 1}`,
       color: p.color ?? p.stroke ?? '#457b9d',
       wait_min: Number(p.wait_min ?? 8),
       circular,

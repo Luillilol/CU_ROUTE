@@ -5,8 +5,8 @@
 //   A*      -> f(n) = g(n) + h(n)
 // Uses a priority queue with "lazy deletion": outdated entries are skipped when popped.
 
-import { PriorityQueue } from './PriorityQueue.js';
-import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js';
+import { PriorityQueue } from './PriorityQueue.js?v=6';
+import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js?v=6';
 
 function* bestFirst(problem, priorityOf) {
   const stats = newStats();

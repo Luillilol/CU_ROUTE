@@ -8,8 +8,8 @@
 // Stop when  top(forward) + top(backward) >= mu  -> mu is optimal.
 // Each step expands the side with the smaller frontier.
 
-import { PriorityQueue } from './PriorityQueue.js';
-import { SearchNode, rootNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js';
+import { PriorityQueue } from './PriorityQueue.js?v=6';
+import { SearchNode, rootNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js?v=6';
 
 export function* bidirectional(problem) {
   const stats = newStats();

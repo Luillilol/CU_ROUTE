@@ -1,11 +1,11 @@
 // Registry of the 9 algorithms + a helper to run one to completion.
 
-import { bfs } from './bfs.js';
-import { dfs } from './dfs.js';
-import { dls, iddfs } from './dls.js';
-import { dfbb } from './dfbb.js';
-import { bidirectional } from './bidirectional.js';
-import { ucs, greedy, astar } from './bestFirst.js';
+import { bfs } from './bfs.js?v=6';
+import { dfs } from './dfs.js?v=6';
+import { dls, iddfs } from './dls.js?v=6';
+import { dfbb } from './dfbb.js?v=6';
+import { bidirectional } from './bidirectional.js?v=6';
+import { ucs, greedy, astar } from './bestFirst.js?v=6';
 
 export const ALGORITHMS = [
   { id: 'bfs', name: 'BFS (breadth-first)', fn: bfs, optimal: false },

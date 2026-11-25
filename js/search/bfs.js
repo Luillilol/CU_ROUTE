@@ -1,7 +1,7 @@
 // Breadth-First Search (graph search).
 // Optimal in NUMBER OF STEPS, not in cost. Goal test when a node is generated.
 
-import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js';
+import { rootNode, childNode, newStats, solution, failure, MAX_EXPANSIONS } from './common.js?v=6';
 
 export function* bfs(problem) {
   const stats = newStats();

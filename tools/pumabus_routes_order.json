@@ -3,7 +3,7 @@
   "routes": [
     {
       "id": "R1",
-      "name": "Ruta 1",
+      "name": "Route 1",
       "color": "#2e9e48",
       "base": "Base Metro Universidad",
       "stops": [
@@ -28,7 +28,7 @@
     },
     {
       "id": "R2",
-      "name": "Ruta 2",
+      "name": "Route 2",
       "color": "#f2d21b",
       "base": "Base Metro Universidad",
       "stops": [
@@ -47,7 +47,7 @@
     },
     {
       "id": "R3",
-      "name": "Ruta 3",
+      "name": "Route 3",
       "color": "#1f6b35",
       "base": "Base Metro Universidad",
       "stops": [
@@ -81,7 +81,7 @@
     },
     {
       "id": "R4",
-      "name": "Ruta 4",
+      "name": "Route 4",
       "color": "#6b4a2f",
       "base": "Base Metro Universidad",
       "stops": [
@@ -104,7 +104,7 @@
     },
     {
       "id": "R5",
-      "name": "Ruta 5",
+      "name": "Route 5",
       "color": "#1e9ad6",
       "base": "Base Metro Universidad",
       "stops": [
@@ -131,7 +131,7 @@
     },
     {
       "id": "R6",
-      "name": "Ruta 6",
+      "name": "Route 6",
       "color": "#9e1b32",
       "base": "Base Estadio Olímpico",
       "stops": [
@@ -169,7 +169,7 @@
     },
     {
       "id": "R7",
-      "name": "Ruta 7",
+      "name": "Route 7",
       "color": "#f0a030",
       "base": "Base Estadio Olímpico",
       "stops": [
@@ -194,7 +194,7 @@
     },
     {
       "id": "R8",
-      "name": "Ruta 8",
+      "name": "Route 8",
       "color": "#26357a",
       "base": "Base Estadio Olímpico",
       "stops": [
@@ -222,7 +222,7 @@
     },
     {
       "id": "R9",
-      "name": "Ruta 9",
+      "name": "Route 9",
       "color": "#a3237d",
       "base": "Base Metrobús CU",
       "stops": [
@@ -245,7 +245,7 @@
     },
     {
       "id": "R10",
-      "name": "Ruta 10",
+      "name": "Route 10",
       "color": "#1c1c1c",
       "base": "Metrobús CU-2",
       "stops": [
@@ -281,7 +281,7 @@
     },
     {
       "id": "R11",
-      "name": "Ruta 11",
+      "name": "Route 11",
       "color": "#5b2c8f",
       "base": "Base Metrobús CU",
       "stops": [
@@ -302,7 +302,7 @@
     },
     {
       "id": "R12",
-      "name": "Ruta 12",
+      "name": "Route 12",
       "color": "#d98fd0",
       "base": "Base Estadio Olímpico",
       "stops": [
@@ -331,7 +331,7 @@
     },
     {
       "id": "R13",
-      "name": "Ruta 13",
+      "name": "Route 13",
       "color": "#7fd6c2",
       "base": "Facultad de Filosofía",
       "stops": [
