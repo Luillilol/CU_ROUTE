@@ -23,6 +23,9 @@ const ui = {
   frontier: new Set(),
   anim: null, // { gen, problem, algo, opts, raf, running }
   pickNext: 'start',
+  routeLayers: new Map(), // route id -> polyline
+  hiddenRoutes: new Set(), // route ids hidden by the user
+  stopRoutes: new Map(), // stop id -> [route ids]
 };
 
 // ---------------------------------------------------------------------------
@@ -61,7 +64,14 @@ function styleFor(id) {
   if (id === $('goal').value) return { ...base, radius: 10, fillColor: COLORS.goal, weight: 2 };
   if (ui.explored.has(id)) return { ...base, fillColor: COLORS.explored };
   if (ui.frontier.has(id)) return { ...base, fillColor: COLORS.frontier };
+  if (isStopHidden(id)) return { ...base, opacity: 0.15, fillOpacity: 0.15 };
   return base;
+}
+
+/** A stop is faded when none of its routes is visible. */
+function isStopHidden(id) {
+  const routes = ui.stopRoutes.get(id);
+  return !!routes && routes.length > 0 && routes.every((r) => ui.hiddenRoutes.has(r));
 }
 
 function paint(id) {
@@ -80,10 +90,11 @@ function drawNetwork() {
   ui.markers.clear();
   const m = currentMap();
 
+  ui.routeLayers.clear();
   for (const seg of m.drawSegments()) {
-    L.polyline(seg.coords, { color: seg.color, weight: 4, opacity: 0.6 })
-      .bindTooltip(seg.label, { sticky: true })
-      .addTo(networkLayer);
+    const line = L.polyline(seg.coords, { color: seg.color, weight: 4, opacity: 0.6 }).bindTooltip(seg.label, { sticky: true });
+    if (seg.id) ui.routeLayers.set(seg.id, line);
+    if (!seg.id || !ui.hiddenRoutes.has(seg.id)) line.addTo(networkLayer);
   }
 
   const bounds = [];
@@ -113,7 +124,9 @@ function drawRoute(result, problem) {
     const p = problem.placeOf(s);
     if (places[places.length - 1] !== p) places.push(p);
   }
-  L.polyline(places.map((p) => m.coordsOf(p)), { color: COLORS.path, weight: 7, opacity: 0.85 }).addTo(pathLayer);
+  // Follow the real roads when the map provides them (Pumabús road shapes), else straight lines.
+  const coords = problem.routeCoords ? problem.routeCoords(result) : places.map((p) => m.coordsOf(p));
+  L.polyline(coords, { color: COLORS.path, weight: 7, opacity: 0.85 }).addTo(pathLayer);
 
   $('summary').textContent = problem.summarize(result).text;
   for (const line of problem.itinerary(result)) {
@@ -320,6 +333,75 @@ function compareAll() {
 }
 
 // ---------------------------------------------------------------------------
+// Route visibility (debugging aid: only affects drawing, not the search)
+// ---------------------------------------------------------------------------
+function buildRoutesPanel() {
+  const m = currentMap();
+  ui.hiddenRoutes.clear();
+  ui.stopRoutes.clear();
+  const panel = $('routesPanel');
+  if (!m.lines) {
+    panel.classList.add('hidden');
+    return;
+  }
+  panel.classList.remove('hidden');
+  for (const L of m.lines.values()) {
+    for (const stopId of L.stops) {
+      if (!ui.stopRoutes.has(stopId)) ui.stopRoutes.set(stopId, []);
+      ui.stopRoutes.get(stopId).push(L.id);
+    }
+  }
+  const list = $('routesList');
+  list.innerHTML = '';
+  for (const L of m.lines.values()) {
+    const item = document.createElement('label');
+    item.className = 'route-item';
+    item.dataset.route = L.id;
+    item.innerHTML = `<input type="checkbox" checked /><span class="swatch" style="background:${L.color ?? '#457b9d'}"></span><span class="route-name"></span>`;
+    item.querySelector('.route-name').textContent = L.name;
+    item.querySelector('input').addEventListener('change', (e) => setRouteVisible(L.id, e.target.checked));
+    item.querySelector('.route-name').addEventListener('click', (e) => {
+      e.preventDefault(); // don't toggle the checkbox
+      showOnlyRoute(L.id);
+    });
+    list.appendChild(item);
+  }
+}
+
+function applyRouteVisibility() {
+  for (const [id, layer] of ui.routeLayers) {
+    if (ui.hiddenRoutes.has(id)) networkLayer.removeLayer(layer);
+    else if (!networkLayer.hasLayer(layer)) networkLayer.addLayer(layer);
+  }
+  document.querySelectorAll('#routesList .route-item').forEach((el) => {
+    const visible = !ui.hiddenRoutes.has(el.dataset.route);
+    el.querySelector('input').checked = visible;
+    el.classList.toggle('off', !visible);
+  });
+  // keep the found route and the stops drawn above the network lines
+  pathLayer.eachLayer((l) => l.bringToFront());
+  markerLayer.bringToFront();
+  paintAll();
+}
+
+function setRouteVisible(id, visible) {
+  if (visible) ui.hiddenRoutes.delete(id);
+  else ui.hiddenRoutes.add(id);
+  applyRouteVisibility();
+}
+
+function showOnlyRoute(id) {
+  ui.hiddenRoutes = new Set([...ui.routeLayers.keys()].filter((r) => r !== id));
+  applyRouteVisibility();
+  setStatus(`Mostrando solo ${currentMap().lineName?.(id) ?? id}`);
+}
+
+function setAllRoutes(visible) {
+  ui.hiddenRoutes = visible ? new Set() : new Set(ui.routeLayers.keys());
+  applyRouteVisibility();
+}
+
+// ---------------------------------------------------------------------------
 // Controls
 // ---------------------------------------------------------------------------
 function fillSelect(select, items, getValue, getLabel) {
@@ -351,6 +433,7 @@ function switchMode(mode) {
   $('placeholderBanner').classList.toggle('hidden', !m.data._placeholder);
   $('results').querySelector('tbody').innerHTML = '';
   ui.pickNext = 'start';
+  buildRoutesPanel();
   clearSearch();
   drawNetwork();
   setStatus(`Mapa ${m.label}: elige origen y destino.`);
@@ -368,6 +451,8 @@ function bindEvents() {
   $('instant').addEventListener('click', solveInstant);
   $('compare').addEventListener('click', compareAll);
   $('speed').addEventListener('input', updateSpeedLabel); // takes effect immediately, even mid-animation
+  $('routesAll').addEventListener('click', () => setAllRoutes(true));
+  $('routesNone').addEventListener('click', () => setAllRoutes(false));
   $('reset').addEventListener('click', () => {
     clearSearch();
     $('results').querySelector('tbody').innerHTML = '';

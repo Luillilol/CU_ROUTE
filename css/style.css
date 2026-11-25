@@ -220,3 +220,12 @@ footer {
 }
 
 .speed-label { font-weight: 400; color: var(--muted); }
+
+/* Route visibility panel */
+.routes-actions { display: flex; gap: 6px; margin-bottom: 6px; }
+.routes-actions button { flex: 1; padding: 4px; border: 1px solid #bbb; border-radius: 5px; background: #fafafa; cursor: pointer; font-size: 0.8rem; }
+.routes-list { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px 8px; }
+.route-item { display: flex; align-items: center; gap: 4px; font-size: 0.82rem; }
+.route-item .swatch { width: 14px; height: 6px; border-radius: 2px; display: inline-block; }
+.route-item .route-name { cursor: pointer; text-decoration: underline dotted; }
+.route-item.off .route-name { color: #aaa; }

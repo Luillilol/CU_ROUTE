@@ -142,25 +142,70 @@ for f in PROG['features']:
             acc = 0.0
     drawn[rid] = (seq, dists, f['properties'])
 
-# ---------------------------------------------------------------- 5. build lines
+# ---------------------------------------------------------------- 5. road geometry per segment
+# Priority for each segment "from > to":
+#   1. hand-drawn fix   tools/source/road_fixes.geojson  (LineString with properties from / to)
+#   2. OSRM road path   tools/source/road_shapes.json    (python3 tools/fetch_road_shapes.py)
+#   3. full route drawn in the progress file (only if it matches the PDF order)
+#   4. nothing -> the app estimates straight line × detour_factor
+road = {}
+osrm_file = ROOT / 'tools/source/road_shapes.json'
+if osrm_file.exists():
+    road.update(json.load(open(osrm_file, encoding='utf-8')))
+
+fixes_file = ROOT / 'tools/source/road_fixes.geojson'
+if fixes_file.exists():
+    for f in json.load(open(fixes_file, encoding='utf-8'))['features']:
+        if f['geometry']['type'] != 'LineString':
+            continue
+        pr = f.get('properties') or {}
+        a, b = canonical(pr.get('from', '')), canonical(pr.get('to', ''))
+        if not (a in stops and b in stops):
+            issues['lines'].append(f"road_fixes: no reconozco from/to = {pr.get('from')!r} / {pr.get('to')!r}")
+            continue
+        pts = [[round(lat, 6), round(lon, 6)] for lon, lat in f['geometry']['coordinates']]
+        # make the drawn path start/end exactly at the stops
+        pts = [[stops[a]['lat'], stops[a]['lon']]] + pts + [[stops[b]['lat'], stops[b]['lon']]]
+        meters = sum(hav((p[1], p[0]), (q[1], q[0])) for p, q in zip(pts, pts[1:]))
+        road[f"{stops[a]['id']}>{stops[b]['id']}"] = {'meters': round(meters), 'shape': pts, 'source': 'manual'}
+
+# ---------------------------------------------------------------- 6. build lines
+coverage = {'manual': 0, 'osrm': 0, 'drawn': 0, 'estimated': 0}
 lines = []
 for r in ORDER['routes']:
     seq = r['stops']
+    ids = [stops[s]['id'] for s in seq if s in stops]
     line = {
         'id': r['id'], 'name': r['name'], 'color': r['color'],
-        'wait_min': WAIT_MIN, 'circular': True,
-        'stops': [stops[s]['id'] for s in seq if s in stops],
+        'wait_min': WAIT_MIN, 'circular': True, 'stops': ids,
     }
+    drawn_dists = None
     if r['id'] in drawn:
         dseq, dists, props = drawn[r['id']]
-        expected = seq + [seq[0]]
-        if dseq == expected:
-            line['segment_meters'] = dists
-            line['wait_min'] = props.get('wait_min', WAIT_MIN)
-            line['color'] = props.get('color', line['color'])
+        line['wait_min'] = props.get('wait_min', WAIT_MIN)
+        if dseq == seq + [seq[0]]:
+            drawn_dists = dists
         else:
             issues['lines'].append(f"{r['name']}: la línea dibujada no sigue el orden del PDF "
-                                   f"(dibujada: {len(dseq)} paradas, esperado: {len(expected)})")
+                                   f"(dibujada: {len(dseq)} paradas, esperado: {len(seq) + 1})")
+    seg_m, seg_s = [], []
+    for i in range(len(ids)):
+        a, b = ids[i], ids[(i + 1) % len(ids)]
+        g = road.get(f'{a}>{b}')
+        if g:
+            seg_m.append(g['meters'])
+            seg_s.append(g['shape'])
+            coverage[g.get('source', 'osrm')] += 1
+        elif drawn_dists:
+            seg_m.append(drawn_dists[i])
+            seg_s.append(None)
+            coverage['drawn'] += 1
+        else:
+            seg_m.append(None)
+            seg_s.append(None)
+            coverage['estimated'] += 1
+    line['segment_meters'] = seg_m
+    line['segment_shapes'] = seg_s
     lines.append(line)
 
 data = {
@@ -174,7 +219,8 @@ data = {
 
 # ---------------------------------------------------------------- report
 print(f"✓ data/pumabus.json: {len(stops)} paradas, {len(lines)} rutas")
-print(f"  Rutas con distancias medidas del dibujo: {[k for k in drawn if k]}")
+print(f"  Distancia de cada tramo: {coverage['manual']} dibujados a mano, {coverage['osrm']} por calle (OSRM), "
+      f"{coverage['drawn']} de la ruta dibujada, {coverage['estimated']} estimados (línea recta × detour_factor)")
 print("\n== Erratas en nombres (corregidas automáticamente) ==")
 for t in issues['typos']: print('  ', t)
 print("\n== Paradas no asociadas ==")

@@ -89,6 +89,20 @@ python3 tools/merge_pumabus.py
 ```
 Combina `tools/source/locations.geojson` (paradas con descripción y foto), `tools/source/mapeo_progreso.geojson` (avance en geojson.io) y `tools/pumabus_routes_order.json` (orden oficial de las 13 rutas, tomado del PDF de la DGSGM). El script imprime un reporte de erratas, paradas faltantes, coordenadas distintas y líneas mal dibujadas. Vuelve a correrlo y luego `node tests/run.js` cada vez que cambies alguna fuente.
 
+### Distancias reales por calle (pesos de las aristas)
+El peso de cada arista "avanzar a la siguiente parada" es **la distancia por calle** entre las dos paradas ÷ velocidad del autobús.
+Las paradas son los únicos nodos del grafo; los puntos de la calle son **puntos auxiliares** que solo sirven para medir la distancia y dibujar la ruta.
+
+1. **Automático (OSRM / OpenStreetMap)**, con internet, desde la carpeta del proyecto:
+   ```bash
+   python3 tools/fetch_road_shapes.py   # descarga el camino por calle de cada tramo (~30 s)
+   python3 tools/merge_pumabus.py       # reconstruye data/pumabus.json con esas distancias
+   node tests/run.js
+   ```
+   El script lista los tramos sospechosos (rodeos enormes o paradas lejos de la calle) para revisarlos.
+2. **Corrección a mano de un tramo** (tiene prioridad sobre OSRM): en geojson.io dibuja **solo ese tramo** como línea siguiendo la calle, con las propiedades `from` = parada de origen y `to` = parada de destino (nombres como en el PDF). Guárdalo como `tools/source/road_fixes.geojson` (puede tener varios tramos) y vuelve a correr `merge_pumabus.py`. Ejemplo: `tools/source/road_fixes.example.geojson`.
+3. Si un tramo no tiene camino, se estima como línea recta × `detour_factor` (1.3).
+
 ## Reemplazar los datos de ejemplo (⚠️ lo más importante)
 
 `data/pumabus.json` y `data/bicipuma.json` traen **datos inventados** (aparece un aviso amarillo en la página). Para poner los reales:

@@ -50,10 +50,13 @@ export class PumabusMap {
         const from = seq[i];
         const to = seq[j];
         const straight = haversine(this.stops.get(from), this.stops.get(to));
+        // Real road length if we have it (OSRM or hand-drawn), else straight line × detour.
         const given = line.segment_meters?.[i];
         const meters = Math.max(given ?? straight * detour, straight);
-        this.next.set(`${line.id}|${i}`, { to, toPos: j, meters });
-        this.prev.set(`${line.id}|${j}`, { from, fromPos: i, meters });
+        // Road geometry [[lat, lon], ...] (auxiliary points, NOT graph nodes); null if unknown.
+        const shape = line.segment_shapes?.[i] ?? null;
+        this.next.set(`${line.id}|${i}`, { to, toPos: j, meters, shape });
+        this.prev.set(`${line.id}|${j}`, { from, fromPos: i, meters, shape });
       }
     }
   }
@@ -87,12 +90,18 @@ export class PumabusMap {
 
   drawSegments() {
     return [...this.lines.values()].map((L) => {
-      const ids = L.circular ? [...L.stops, L.stops[0]] : L.stops;
-      return {
-        coords: ids.map((id) => [this.stops.get(id).lat, this.stops.get(id).lon]),
-        color: L.color ?? '#457b9d',
-        label: L.name,
-      };
+      const n = L.stops.length;
+      const segments = L.circular ? n : n - 1;
+      const coords = [];
+      for (let i = 0; i < segments; i++) {
+        const seg = this.next.get(`${L.id}|${i}`);
+        const piece = seg.shape ?? [this.coordsOf(L.stops[i]), this.coordsOf(seg.to)];
+        for (const p of piece) {
+          const last = coords[coords.length - 1];
+          if (!last || last[0] !== p[0] || last[1] !== p[1]) coords.push(p);
+        }
+      }
+      return { id: L.id, coords, color: L.color ?? '#457b9d', label: L.name };
     });
   }
 
@@ -130,13 +139,13 @@ class PumabusProblem {
     };
   }
 
-  _ride(from, to, lineId, toPos, meters) {
+  _ride(from, to, lineId, toPos, meters, shape = null) {
     const L = this.map.lines.get(lineId);
     const minutes = meters / L.speed;
     return {
       state: { stop: to, line: lineId, pos: toPos },
       cost: minutes,
-      action: { type: 'ride', line: lineId, from, to, meters, minutes, text: `${L.name}: ${this.map.name(from)} → ${this.map.name(to)}` },
+      action: { type: 'ride', line: lineId, from, to, meters, minutes, shape, text: `${L.name}: ${this.map.name(from)} → ${this.map.name(to)}` },
     };
   }
 
@@ -180,7 +189,7 @@ class PumabusProblem {
       return out;
     }
     const nx = this.map.next.get(`${s.line}|${s.pos}`);
-    if (nx) out.push(this._ride(s.stop, nx.to, s.line, nx.toPos, nx.meters));
+    if (nx) out.push(this._ride(s.stop, nx.to, s.line, nx.toPos, nx.meters, nx.shape));
     for (const { line, pos } of this.map.linesAt.get(s.stop)) {
       if (line !== s.line) out.push(this._change(s.stop, s.line, line, pos));
     }
@@ -193,7 +202,7 @@ class PumabusProblem {
     const out = [];
     const pv = this.map.prev.get(`${s.line}|${s.pos}`);
     if (pv) {
-      const r = this._ride(pv.from, s.stop, s.line, s.pos, pv.meters);
+      const r = this._ride(pv.from, s.stop, s.line, s.pos, pv.meters, pv.shape);
       out.push({ state: { stop: pv.from, line: s.line, pos: pv.fromPos }, cost: r.cost, action: r.action });
     }
     const b = this._board(s.stop, s.line, s.pos);
@@ -215,6 +224,21 @@ class PumabusProblem {
 
   heuristic(s) {
     return haversine(this.map.stops.get(s.stop), this.goalStop) / this.map.maxSpeed;
+  }
+
+  /** Coordinates of the found route, following the roads when the shape is known. */
+  routeCoords(result) {
+    const coords = [];
+    const push = (p) => {
+      const last = coords[coords.length - 1];
+      if (!last || last[0] !== p[0] || last[1] !== p[1]) coords.push(p);
+    };
+    push(this.map.coordsOf(this.start));
+    for (const a of result.actions) {
+      if (a.type !== 'ride') continue;
+      for (const p of a.shape ?? [this.map.coordsOf(a.from), this.map.coordsOf(a.to)]) push(p);
+    }
+    return coords;
   }
 
   summarize(result) {

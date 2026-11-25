@@ -67,6 +67,16 @@
         <span><i class="bar"></i>Ruta</span>
       </div>
 
+      <div id="routesPanel" class="routes-panel hidden">
+        <h2>Rutas visibles</h2>
+        <div class="routes-actions">
+          <button id="routesAll" type="button">Todas</button>
+          <button id="routesNone" type="button">Ninguna</button>
+        </div>
+        <div id="routesList" class="routes-list"></div>
+        <p class="hint">Casilla: mostrar u ocultar · Clic en el nombre: ver solo esa ruta. (Solo cambia el dibujo; la búsqueda usa todas las rutas.)</p>
+      </div>
+
       <h2>Itinerario</h2>
       <div id="summary" class="summary"></div>
       <ol id="itinerary"></ol>
@@ -96,6 +106,6 @@
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script type="module" src="js/main.js?v=3"></script>
+  <script type="module" src="js/main.js?v=4"></script>
 </body>
 </html>
