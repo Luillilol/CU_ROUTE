@@ -14,7 +14,7 @@ export function* bfs(problem) {
 
   while (head < queue.length) {
     const node = queue[head++];
-    if (stats.expanded >= MAX_EXPANSIONS) return failure(stats, 'Límite de expansiones');
+    if (stats.expanded >= MAX_EXPANSIONS) return failure(stats, 'Expansion limit reached');
     stats.expanded++;
 
     const added = [];

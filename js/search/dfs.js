@@ -14,7 +14,7 @@ export function* dfs(problem) {
     if (problem.isGoal(node.state)) return solution(node, stats);
     explored.add(node.key);
 
-    if (stats.expanded >= MAX_EXPANSIONS) return failure(stats, 'Límite de expansiones');
+    if (stats.expanded >= MAX_EXPANSIONS) return failure(stats, 'Expansion limit reached');
     stats.expanded++;
 
     const added = [];

@@ -14,7 +14,7 @@ import { SearchNode, rootNode, newStats, solution, failure, MAX_EXPANSIONS } fro
 export function* bidirectional(problem) {
   const stats = newStats();
   if (typeof problem.predecessors !== 'function' || typeof problem.goalStates !== 'function') {
-    return failure(stats, 'Este problema no define aristas inversas');
+    return failure(stats, 'This problem does not define reverse edges');
   }
 
   const makeSide = (name) => ({ name, pq: new PriorityQueue(), best: new Map(), closed: new Set() });

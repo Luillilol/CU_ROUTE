@@ -30,7 +30,7 @@ export function* depthLimited(problem, limit, stats) {
       continue;
     }
     if (stats.expanded >= MAX_EXPANSIONS) {
-      return { result: failure(stats, 'Límite de expansiones'), cutoff, aborted: true };
+      return { result: failure(stats, 'Expansion limit reached'), cutoff, aborted: true };
     }
     stats.expanded++;
 
@@ -54,7 +54,7 @@ export function* dls(problem, opts = {}) {
   const limit = opts.limit ?? 10;
   const stats = newStats();
   const { result, cutoff } = yield* depthLimited(problem, limit, stats);
-  if (!result.found && cutoff) result.note = `Sin ruta con ℓ = ${limit} (corte por profundidad)`;
+  if (!result.found && cutoff) result.note = `No route with ℓ = ${limit} (depth cutoff)`;
   result.depthLimit = limit;
   return result;
 }
@@ -72,5 +72,5 @@ export function* iddfs(problem, opts = {}) {
     if (aborted) return result;
     if (!cutoff) return failure(stats); // the whole graph was explored: no route
   }
-  return failure(stats, 'Se alcanzó la profundidad máxima');
+  return failure(stats, 'Maximum depth reached');
 }

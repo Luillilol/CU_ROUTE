@@ -61,6 +61,6 @@ export function solution(node, stats, extra = {}) {
   return { found: true, path, actions, cost: node.g, stats, note: '', ...extra };
 }
 
-export function failure(stats, note = 'No existe ruta') {
+export function failure(stats, note = 'No route exists') {
   return { found: false, path: [], actions: [], cost: Infinity, stats, note };
 }

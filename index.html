@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RutaCU · Búsqueda de rutas en Ciudad Universitaria</title>
+  <title>ROUTE CU · Route finding in Ciudad Universitaria</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -13,12 +13,12 @@
 
     <aside id="panel">
       <header>
-        <h1>RutaCU</h1>
-        <p class="sub">La mejor ruta entre dos puntos de Ciudad Universitaria · 9 algoritmos de búsqueda</p>
+        <h1>ROUTE CU</h1>
+        <p class="sub">The best route between two points in Ciudad Universitaria · 9 search algorithms</p>
       </header>
 
       <div id="placeholderBanner" class="banner hidden">
-        ⚠️ Datos de EJEMPLO: rutas y paradas aproximadas. Reemplázalos en <code>data/</code>.
+        ⚠️ SAMPLE data: approximate routes and stops. Replace them in <code>data/</code>.
       </div>
 
       <div class="tabs" role="tablist">
@@ -27,85 +27,85 @@
       </div>
 
       <div class="form">
-        <label>Origen (A)
+        <label>Origin (A)
           <select id="start"></select>
         </label>
-        <label>Destino (B)
+        <label>Destination (B)
           <select id="goal"></select>
         </label>
-        <p class="hint">Tip: también puedes hacer clic en el mapa (primero A, luego B).</p>
+        <p class="hint">Tip: you can also click on the map (first A, then B).</p>
 
-        <label>Algoritmo
+        <label>Algorithm
           <select id="algo"></select>
         </label>
-        <label id="limitWrap" class="hidden">Límite de profundidad ℓ
+        <label id="limitWrap" class="hidden">Depth limit ℓ
           <input type="number" id="limit" value="12" min="0" max="500" />
         </label>
-        <label>Criterio
+        <label>Criterion
           <select id="criterion"></select>
         </label>
-        <label>Velocidad de animación <span id="speedLabel" class="speed-label"></span>
+        <label>Animation speed <span id="speedLabel" class="speed-label"></span>
           <input type="range" id="speed" min="1" max="100" value="40" />
         </label>
       </div>
 
       <div class="buttons">
-        <button id="run" class="primary">▶ Animar</button>
-        <button id="step">⏭ Paso</button>
-        <button id="instant">⚡ Resolver</button>
-        <button id="compare">📊 Comparar los 9</button>
-        <button id="reset">⟲ Limpiar</button>
+        <button id="run" class="primary">▶ Animate</button>
+        <button id="step">⏭ Step</button>
+        <button id="instant">⚡ Solve</button>
+        <button id="compare">📊 Compare all 9</button>
+        <button id="reset">⟲ Clear</button>
       </div>
 
       <div id="status" class="status"></div>
 
       <div class="legend">
-        <span><i class="dot start"></i>Origen</span>
-        <span><i class="dot goal"></i>Destino</span>
-        <span><i class="dot frontier"></i>Frontera</span>
-        <span><i class="dot explored"></i>Expandido</span>
-        <span><i class="bar"></i>Ruta</span>
+        <span><i class="dot start"></i>Origin</span>
+        <span><i class="dot goal"></i>Destination</span>
+        <span><i class="dot frontier"></i>Frontier</span>
+        <span><i class="dot explored"></i>Expanded</span>
+        <span><i class="bar"></i>Route</span>
       </div>
 
       <div id="routesPanel" class="routes-panel hidden">
-        <h2>Rutas visibles</h2>
+        <h2>Visible routes</h2>
         <div class="routes-actions">
-          <button id="routesAll" type="button">Todas</button>
-          <button id="routesNone" type="button">Ninguna</button>
+          <button id="routesAll" type="button">All</button>
+          <button id="routesNone" type="button">None</button>
         </div>
         <div id="routesList" class="routes-list"></div>
-        <p class="hint">Casilla: mostrar u ocultar · Clic en el nombre: ver solo esa ruta. (Solo cambia el dibujo; la búsqueda usa todas las rutas.)</p>
+        <p class="hint">Checkbox: show or hide · Click the name: show only that route. (Only affects the drawing; the search uses all routes.)</p>
       </div>
 
-      <h2>Itinerario</h2>
+      <h2>Itinerary</h2>
       <div id="summary" class="summary"></div>
       <ol id="itinerary"></ol>
 
-      <h2>Resultados</h2>
+      <h2>Results</h2>
       <div class="table-wrap">
         <table id="results">
           <thead>
             <tr>
-              <th>Algoritmo</th>
-              <th>Ruta</th>
-              <th>Costo</th>
-              <th title="Nodos expandidos">Exp.</th>
-              <th title="Nodos generados">Gen.</th>
-              <th title="Tamaño máximo de la frontera (memoria)">Front. máx.</th>
-              <th title="Tiempo de ejecución">ms</th>
-              <th title="Número de acciones">Pasos</th>
-              <th title="¿Costo óptimo?">Ópt.</th>
+              <th>Algorithm</th>
+              <th>Route</th>
+              <th>Cost</th>
+              <th title="Expanded nodes">Exp.</th>
+              <th title="Generated nodes">Gen.</th>
+              <th title="Maximum frontier size (memory)">Max front.</th>
+              <th title="Execution time">ms</th>
+              <th title="Number of actions">Steps</th>
+              <th title="Optimal cost?">Opt.</th>
             </tr>
           </thead>
           <tbody></tbody>
         </table>
       </div>
 
-      <footer>Proyecto final · Inteligencia Artificial · Facultad de Ingeniería, UNAM</footer>
+      <footer>Final project · Artificial Intelligence · Facultad de Ingeniería, UNAM</footer>
     </aside>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script type="module" src="js/main.js?v=4"></script>
+  <script type="module" src="js/main.js?v=5"></script>
 </body>
 </html>

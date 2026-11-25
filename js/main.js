@@ -115,7 +115,7 @@ function drawRoute(result, problem) {
   $('itinerary').innerHTML = '';
   $('summary').textContent = '';
   if (!result.found) {
-    setStatus(`No se encontró ruta: ${result.note}`, true);
+    setStatus(`No route found: ${result.note}`, true);
     return;
   }
   const m = currentMap();
@@ -197,7 +197,7 @@ function applyEvent(ev, problem) {
     ui.explored.clear();
     ui.frontier.clear();
     paintAll();
-    setStatus(`IDDFS · probando profundidad ℓ = ${ev.depth}`);
+    setStatus(`IDDFS · trying depth ℓ = ${ev.depth}`);
     return;
   }
   if (ev.expanded !== undefined) {
@@ -213,7 +213,7 @@ function applyEvent(ev, problem) {
       paint(p);
     }
   }
-  if (ev.bound !== undefined) setStatus(`DFBB · nueva cota: ${ev.bound.toFixed(2)}`);
+  if (ev.bound !== undefined) setStatus(`DFBB · new bound: ${ev.bound.toFixed(2)}`);
 }
 
 function startGenerator() {
@@ -222,7 +222,7 @@ function startGenerator() {
   const algo = currentAlgo();
   const opts = searchOpts();
   ui.anim = { gen: algo.fn(problem, opts), problem, algo, opts, raf: null };
-  setStatus(`${algo.name} · buscando…`);
+  setStatus(`${algo.name} · searching…`);
 }
 
 /** Advance n steps. Returns true when the search finished. */
@@ -246,7 +246,7 @@ function finishAnimation(result) {
   // Re-run without animation to measure real execution time.
   const measured = runSearch(makeProblem(), algo, opts);
   addResultRow(algo, measured.result, measured.ms, problem);
-  if (result.found) setStatus(`${algo.name} · terminado: ${result.stats.expanded} nodos expandidos`);
+  if (result.found) setStatus(`${algo.name} · done: ${result.stats.expanded} nodes expanded`);
 }
 
 /**
@@ -264,7 +264,7 @@ function stepsPerSecond() {
 
 function updateSpeedLabel() {
   const sps = stepsPerSecond();
-  $('speedLabel').textContent = sps < 1 ? `(1 paso cada ${(1 / sps).toFixed(1)} s)` : `(${sps.toFixed(sps < 10 ? 1 : 0)} pasos/s)`;
+  $('speedLabel').textContent = sps < 1 ? `(1 step every ${(1 / sps).toFixed(1)} s)` : `(${sps.toFixed(sps < 10 ? 1 : 0)} steps/s)`;
 }
 
 function animate() {
@@ -305,7 +305,7 @@ function solveInstant() {
   paintAll();
   drawRoute(result, problem);
   addResultRow(algo, result, ms, problem);
-  if (result.found) setStatus(`${algo.name} · ${result.stats.expanded} nodos expandidos en ${ms.toFixed(2)} ms`);
+  if (result.found) setStatus(`${algo.name} · ${result.stats.expanded} nodes expanded in ${ms.toFixed(2)} ms`);
 }
 
 function compareAll() {
@@ -329,7 +329,7 @@ function compareAll() {
   ui.explored = star.explored;
   paintAll();
   drawRoute(star.result, star.problem);
-  setStatus(optimalCost === null ? 'No existe ruta entre A y B' : 'Comparación lista · en el mapa se muestra A*');
+  setStatus(optimalCost === null ? 'No route exists between A and B' : 'Comparison ready · the map shows A*');
 }
 
 // ---------------------------------------------------------------------------
@@ -393,7 +393,7 @@ function setRouteVisible(id, visible) {
 function showOnlyRoute(id) {
   ui.hiddenRoutes = new Set([...ui.routeLayers.keys()].filter((r) => r !== id));
   applyRouteVisibility();
-  setStatus(`Mostrando solo ${currentMap().lineName?.(id) ?? id}`);
+  setStatus(`Showing only ${currentMap().lineName?.(id) ?? id}`);
 }
 
 function setAllRoutes(visible) {
@@ -418,7 +418,7 @@ function pickPlace(id) {
   $(ui.pickNext).value = id;
   ui.pickNext = ui.pickNext === 'start' ? 'goal' : 'start';
   clearSearch();
-  setStatus(`Origen: ${currentMap().name($('start').value)} · Destino: ${currentMap().name($('goal').value)}`);
+  setStatus(`Origin: ${currentMap().name($('start').value)} · Destination: ${currentMap().name($('goal').value)}`);
 }
 
 function switchMode(mode) {
@@ -436,7 +436,7 @@ function switchMode(mode) {
   buildRoutesPanel();
   clearSearch();
   drawNetwork();
-  setStatus(`Mapa ${m.label}: elige origen y destino.`);
+  setStatus(`${m.label} map: choose origin and destination.`);
 }
 
 function bindEvents() {
@@ -462,7 +462,7 @@ function bindEvents() {
 
 async function loadJSON(url) {
   const res = await fetch(url, { cache: 'no-store' }); // always load the latest data
-  if (!res.ok) throw new Error(`No se pudo cargar ${url} (${res.status})`);
+  if (!res.ok) throw new Error(`Could not load ${url} (${res.status})`);
   return res.json();
 }
 
@@ -476,7 +476,7 @@ async function init() {
     ui.maps.pumabus = new PumabusMap(pumabus);
     ui.maps.bicipuma = new BiciMap(bicipuma);
   } catch (err) {
-    setStatus(`Error: ${err.message}. Si abriste index.html directamente, usa un servidor local (ver README).`, true);
+    setStatus(`Error: ${err.message}. If you opened index.html directly, use a local server (see README).`, true);
     return;
   }
   switchMode('pumabus');

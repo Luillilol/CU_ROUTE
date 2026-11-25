@@ -24,7 +24,7 @@ export class BiciMap {
     for (const e of data.edges) {
       const a = this.nodes.get(e.from);
       const b = this.nodes.get(e.to);
-      if (!a || !b) throw new Error(`BiciPuma: la arista ${e.from} → ${e.to} usa un nodo inexistente`);
+      if (!a || !b) throw new Error(`BiciPuma: edge ${e.from} → ${e.to} uses a non-existent node`);
       const straight = haversine(a, b);
       const meters = Math.max(e.meters ?? straight * detour, straight);
       this.edges.push({ from: e.from, to: e.to, meters });
@@ -43,8 +43,8 @@ export class BiciMap {
 
   get criteria() {
     return [
-      { id: 'time', name: 'Más rápida (minutos)' },
-      { id: 'distance', name: 'Más corta (metros)' },
+      { id: 'time', name: 'Fastest (minutes)' },
+      { id: 'distance', name: 'Shortest (meters)' },
     ];
   }
 
@@ -100,7 +100,7 @@ class BiciProblem {
       to,
       meters,
       minutes: meters / this.map.speed,
-      text: `Pedalea de ${this.map.name(from)} a ${this.map.name(to)} (${Math.round(meters)} m)`,
+      text: `Ride from ${this.map.name(from)} to ${this.map.name(to)} (${Math.round(meters)} m)`,
     };
   }
 
@@ -160,12 +160,12 @@ class BiciProblem {
       seg.to = a.to;
       seg.meters += a.meters;
       if (this.map.nodes.get(a.to)?.station) {
-        lines.push(`Pedalea de ${this.map.name(seg.from)} a ${this.map.name(seg.to)} (${Math.round(seg.meters)} m)`);
+        lines.push(`Ride from ${this.map.name(seg.from)} to ${this.map.name(seg.to)} (${Math.round(seg.meters)} m)`);
         seg = null;
       }
     }
-    if (seg) lines.push(`Pedalea de ${this.map.name(seg.from)} a ${this.map.name(seg.to)} (${Math.round(seg.meters)} m)`);
-    if (result.actions.length) lines.push(`Deja la bici en ${this.map.name(this.goal)}`);
+    if (seg) lines.push(`Ride from ${this.map.name(seg.from)} to ${this.map.name(seg.to)} (${Math.round(seg.meters)} m)`);
+    if (result.actions.length) lines.push(`Drop off the bike at ${this.map.name(this.goal)}`);
     return lines;
   }
 }

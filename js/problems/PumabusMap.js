@@ -39,7 +39,7 @@ export class PumabusMap {
 
       const seq = [...line.stops];
       seq.forEach((id, pos) => {
-        if (!this.stops.has(id)) throw new Error(`Pumabús: la ruta ${line.id} usa la parada inexistente ${id}`);
+        if (!this.stops.has(id)) throw new Error(`Pumabús: route ${line.id} uses non-existent stop ${id}`);
         this.linesAt.get(id).push({ line: line.id, pos });
       });
 
@@ -67,8 +67,8 @@ export class PumabusMap {
 
   get criteria() {
     return [
-      { id: 'time', name: 'Más rápida (minutos)' },
-      { id: 'transfers', name: 'Menos transbordos' },
+      { id: 'time', name: 'Fastest (minutes)' },
+      { id: 'transfers', name: 'Fewest transfers' },
     ];
   }
 
@@ -134,7 +134,7 @@ class PumabusProblem {
         type: 'board',
         line: lineId,
         minutes: L.wait,
-        text: `Aborda ${L.name} en ${this.map.name(stop)} (espera ~${fmt(L.wait)} min)`,
+        text: `Board ${L.name} at ${this.map.name(stop)} (wait ~${fmt(L.wait)} min)`,
       },
     };
   }
@@ -160,7 +160,7 @@ class PumabusProblem {
         type: 'change',
         line: toLine,
         minutes,
-        text: `Transborda de ${this.map.lineName(fromLine)} a ${L.name} en ${this.map.name(stop)} (~${fmt(minutes)} min)`,
+        text: `Transfer from ${this.map.lineName(fromLine)} to ${L.name} at ${this.map.name(stop)} (~${fmt(minutes)} min)`,
       },
     };
   }
@@ -244,7 +244,7 @@ class PumabusProblem {
   summarize(result) {
     const minutes = result.actions.reduce((acc, a) => acc + a.minutes, 0);
     const changes = result.actions.filter((a) => a.type === 'change').length;
-    return { minutes, changes, text: `${fmt(minutes)} min · ${changes} transbordo(s)` };
+    return { minutes, changes, text: `${fmt(minutes)} min · ${changes} transfer(s)` };
   }
 
   /** Itinerary: consecutive rides on the same line merged into one line of text. */
@@ -262,10 +262,10 @@ class PumabusProblem {
     }
     const lines = merged.map((a) =>
       a.type === 'ride'
-        ? `${this.map.lineName(a.line)}: ${this.map.name(a.from)} → ${this.map.name(a.to)} (${a.stops} parada(s), ~${fmt(a.minutes)} min)`
+        ? `${this.map.lineName(a.line)}: ${this.map.name(a.from)} → ${this.map.name(a.to)} (${a.stops} stop(s), ~${fmt(a.minutes)} min)`
         : a.text,
     );
-    if (result.actions.length) lines.push(`Baja en ${this.map.name(this.goal)}`);
+    if (result.actions.length) lines.push(`Get off at ${this.map.name(this.goal)}`);
     return lines;
   }
 }

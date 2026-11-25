@@ -8,13 +8,13 @@ import { bidirectional } from './bidirectional.js';
 import { ucs, greedy, astar } from './bestFirst.js';
 
 export const ALGORITHMS = [
-  { id: 'bfs', name: 'BFS (amplitud)', fn: bfs, optimal: false },
-  { id: 'dfs', name: 'DFS (profundidad)', fn: dfs, optimal: false },
-  { id: 'dls', name: 'DLS (profundidad limitada)', fn: dls, optimal: false, usesLimit: true },
-  { id: 'iddfs', name: 'IDDFS (profundización iterativa)', fn: iddfs, optimal: false },
-  { id: 'dfbb', name: 'DFBB (ramificación y acotamiento)', fn: dfbb, optimal: true },
-  { id: 'bidir', name: 'Bidireccional', fn: bidirectional, optimal: true },
-  { id: 'ucs', name: 'Costo uniforme (UCS)', fn: ucs, optimal: true },
+  { id: 'bfs', name: 'BFS (breadth-first)', fn: bfs, optimal: false },
+  { id: 'dfs', name: 'DFS (depth-first)', fn: dfs, optimal: false },
+  { id: 'dls', name: 'DLS (depth-limited)', fn: dls, optimal: false, usesLimit: true },
+  { id: 'iddfs', name: 'IDDFS (iterative deepening)', fn: iddfs, optimal: false },
+  { id: 'dfbb', name: 'DFBB (branch and bound)', fn: dfbb, optimal: true },
+  { id: 'bidir', name: 'Bidirectional', fn: bidirectional, optimal: true },
+  { id: 'ucs', name: 'Uniform cost (UCS)', fn: ucs, optimal: true },
   { id: 'greedy', name: 'Greedy Best-First', fn: greedy, optimal: false },
   { id: 'astar', name: 'A*', fn: astar, optimal: true },
 ];

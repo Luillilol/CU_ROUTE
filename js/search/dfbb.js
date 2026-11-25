@@ -53,5 +53,5 @@ export function* dfbb(problem) {
   }
 
   if (!best) return failure(stats);
-  return solution(best, stats, { note: `Cota mejorada ${improvements} vez/veces` });
+  return solution(best, stats, { note: `Bound improved ${improvements} time(s)` });
 }
