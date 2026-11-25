@@ -1,0 +1,10 @@
+{
+  "name": "rutacu",
+  "version": "1.0.0",
+  "description": "Búsqueda de rutas en Ciudad Universitaria (Pumabús y BiciPuma) con 9 algoritmos de búsqueda",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node tests/run.js"
+  }
+}

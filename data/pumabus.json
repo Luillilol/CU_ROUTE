@@ -1,0 +1,1520 @@
+{
+  "speed_kmh": 15,
+  "transfer_penalty_min": 2,
+  "detour_factor": 1.3,
+  "stops": [
+    {
+      "id": "base_metro_universidad",
+      "name": "Base Metro Universidad",
+      "lat": 19.323711,
+      "lon": -99.174847,
+      "description": "Aquí se se encuentran varias rutas del pumabus, es muy buen lugar para moverte a otros lados de C.U. Además, en la salida se encuentra la estación del metro C.U. lo que hace de esta base un punto importante en la conexión universitaria.",
+      "photo": "/Imagenes/base_metro_universidad.jpg",
+      "routes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "cendi",
+      "name": "CENDI",
+      "lat": 19.328672,
+      "lon": -99.174935,
+      "description": "Esta parada se encuentra cerca del Centro de Desarrollo Infantil, en este lugar infantes de 36 meses hasta 6 años pueden tomar clases. Además, cerca también se encuentra la DGAE (Dirección General de Administración Escolar).",
+      "photo": "/Imagenes/CENDI.png",
+      "routes": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": "psiquiatria_y_salud_mental",
+      "name": "Psiquiatría y Salud Mental",
+      "lat": 19.332334,
+      "lon": -99.178311,
+      "description": "Esta estación del pumabus se encuentra frente al departamento de Psiquiatría y Salud Mental de la Facultad de Medicina. Además, se encuentra cerca de la salida de Cerro del Agua y Copilco.",
+      "photo": "/Imagenes/psiquiatria_y_salud_mental.jpg",
+      "routes": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": "facultad_de_quimica",
+      "name": "Facultad de Química",
+      "lat": 19.330861,
+      "lon": -99.180748,
+      "description": "Parada de la Facultad de Química, frente al estacionamiento y algunos puestos de comidas. Se encuentra frente a la parada del IIMAS.",
+      "photo": "/Imagenes/facultad_de_quimica.jpeg",
+      "routes": [
+        1,
+        7,
+        12
+      ]
+    },
+    {
+      "id": "enallt_edif_a_y_b",
+      "name": "ENALLT Edif. A y B",
+      "lat": 19.330757,
+      "lon": -99.183527,
+      "description": "Esta parada se encuentra frente a la Escuela Nacional de Lenguas, Lingüística y Traducción. Además, cerca de la misma se encuentra la entrada al edificio A de la Facultad de Ingeniería, Las Islas y el Anexo de Arquitectura.",
+      "photo": "/Imagenes/enallt_edif_a_y_b.jpeg",
+      "routes": [
+        1,
+        7,
+        12
+      ]
+    },
+    {
+      "id": "facultad_de_ingenieria",
+      "name": "Facultad de Ingeniería",
+      "lat": 19.330789,
+      "lon": -99.18455,
+      "description": "Frente a esta parada se encuentra la entrada al edificio B de la Facultad de Igneniería. Cerca también se encuentra la Alberca Olímpica.",
+      "photo": "/Imagenes/facultad_de_ingenieria.jpeg",
+      "routes": [
+        1,
+        7,
+        12
+      ]
+    },
+    {
+      "id": "facultad_de_arquitectura",
+      "name": "Facultad de Arquitectura",
+      "lat": 19.330535,
+      "lon": -99.186817,
+      "description": "Aquí se encuentra la entrada a la Facultad de Arquitectura, enfrente se encuentra la Dirección General de Atención a la Salud.",
+      "photo": "/Imagenes/facultad_de_arquitectura.jpeg",
+      "routes": [
+        1,
+        7,
+        12
+      ]
+    },
+    {
+      "id": "rectoria",
+      "name": "Rectoría",
+      "lat": 19.332682,
+      "lon": -99.18938,
+      "description": "Parada que se encuentra frente a Rectoría, cerca también se encuentra la Biblioteca Central y el Estadio Universitario.",
+      "photo": "/Imagenes/rectoria.jpeg",
+      "routes": [
+        1,
+        9
+      ]
+    },
+    {
+      "id": "psicologia",
+      "name": "Psicología",
+      "lat": 19.334487,
+      "lon": -99.189178,
+      "description": "Esta parada se encuentra frente a la entrada de la Facultad de Psicología, el Jardín del Edén y la Biblioteca Central. Caminando un poco también se puede llegar a la parada del metrobús Dr. Gálvez.",
+      "photo": "/Imagenes/psicologia.jpeg",
+      "routes": [
+        1,
+        5,
+        9,
+        12
+      ]
+    },
+    {
+      "id": "facultad_de_filosofia",
+      "name": "Facultad de Filosofía",
+      "lat": 19.334817,
+      "lon": -99.186686,
+      "description": "Parada frente a la Facultad de Filosofía. Cerca de Biblioteca Central y frente al Centro de Enseñanza Para Extranjeros.",
+      "photo": "/Imagenes/facultad_de_filosofia.jpeg",
+      "routes": [
+        1,
+        5,
+        7,
+        9,
+        12,
+        13
+      ]
+    },
+    {
+      "id": "facultad_de_derecho",
+      "name": "Facultad de Derecho",
+      "lat": 19.335002,
+      "lon": -99.184797,
+      "description": "Esta parada se encuentra frente a la entrada de la Facultad de Derecho. Enfrente se encuentra el estacionamiento de derecho y la salida a la gasolinera Pemex.",
+      "photo": "/Imagenes/facultad_de_derecho.jpeg",
+      "routes": [
+        1,
+        5,
+        7,
+        9,
+        12,
+        13
+      ]
+    },
+    {
+      "id": "facultad_de_economia",
+      "name": "Facultad de Economía",
+      "lat": 19.335067,
+      "lon": -99.18295,
+      "description": "Esta estación se encuentra cerca de la entrada de la Facultad de Economía. Cerca se encuentra la salida peatonal que lleva al Walmart de Copilco.",
+      "photo": "/Imagenes/facultad_de_economia.jpeg",
+      "routes": [
+        1,
+        5,
+        7,
+        9,
+        12
+      ]
+    },
+    {
+      "id": "facultad_de_odontologia",
+      "name": "Facultad de Odontología",
+      "lat": 19.334687,
+      "lon": -99.180705,
+      "description": "Parada del Pumabús cerca de la entrada de la Facultad de Odontología. Se encuentra cerca de la Muela y frente a la salida peatonal de Odontología. Parada muy concurrida por su cercanía al metro Copilco.",
+      "photo": "/Imagenes/facultad_de_odontologia.jpeg",
+      "routes": [
+        1,
+        5,
+        7,
+        9,
+        12
+      ]
+    },
+    {
+      "id": "facultad_de_medicina",
+      "name": "Facultad de Medicina",
+      "lat": 19.332799,
+      "lon": -99.178815,
+      "description": "Esta parada se encuentra frente a la entrada del estacionamiento de la Facultad de Medicina. Cerca de la salida hacía Cerro del Agua y Copilco. Cerca de Psiquiatría y Salud Mental.",
+      "photo": "/Imagenes/facultad_de_medicina.jpeg",
+      "routes": [
+        1,
+        5,
+        7,
+        9,
+        12
+      ]
+    },
+    {
+      "id": "facultad_de_veterinaria",
+      "name": "Facultad de Veterinaria",
+      "lat": 19.329143,
+      "lon": -99.175648,
+      "description": "Aquí se encuentra la entrada a la Facultad de Veterinaria.",
+      "photo": "/Imagenes/facultad_de_veterinaria.jpg",
+      "routes": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": "instituto_de_geofisica",
+      "name": "Instituto de Geofísica",
+      "lat": 19.326453,
+      "lon": -99.175099,
+      "description": "Parada del Pumabús cerca de la entrada del Instituto de Geología.",
+      "photo": "/Imagenes/instituto_de_geofisica.jpg",
+      "routes": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": "quimica_conjunto_d_y_e",
+      "name": "Química Conjunto D y E",
+      "lat": 19.322848,
+      "lon": -99.177452,
+      "description": "Aquí se encuentra el Anexo de la Facultad de Química.",
+      "photo": "/Imagenes/quimica_conjunto_d_y_e.jpg",
+      "routes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "facultad_de_ciencias_alumnos",
+      "name": "Facultad de Ciencias Alumnos",
+      "lat": 19.322608,
+      "lon": -99.179107,
+      "description": "Esta parada se encuentra frente al estacionamiento de estudiantes de la Facultad de Ciencias.",
+      "photo": "/Imagenes/facultad_de_ciencias_alumnos.jpg",
+      "routes": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": "facultad_de_ciencias_camino_verde",
+      "name": "Facultad de Ciencias Camino Verde",
+      "lat": 19.325468,
+      "lon": -99.181677,
+      "description": "Estación cerca de la Facultad de Ciencias. El Camino Verde pasa cerca de aquí.",
+      "photo": "/Imagenes/facultad_de_ciencias_camino_verde.jpg",
+      "routes": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": "facultad_de_contaduria_y_administracion",
+      "name": "Facultad de Contaduría y Administración",
+      "lat": 19.323602,
+      "lon": -99.184767,
+      "description": "Parada frente a la Facultad de Contaduría y Administración.",
+      "photo": "/Imagenes/facultad_de_contaduria_y_administracion.jpg",
+      "routes": [
+        2,
+        4,
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "escuela_de_trabajo_social",
+      "name": "Escuela de Trabajo Social",
+      "lat": 19.323249,
+      "lon": -99.186651,
+      "description": "Estación que se encuentra frenta a la Escuela de Trabajo Social.",
+      "photo": "/Imagenes/escuela_de_trabajo_social.jpg",
+      "routes": [
+        2,
+        4,
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "base_metrobus_cu",
+      "name": "Base Metrobús CU",
+      "lat": 19.323923,
+      "lon": -99.187678,
+      "description": "Esta parada se encuentra frente a la estación del Metrobús C.U. Es una estación muy visitada. Aquí los conductores realizan sus cambios.",
+      "photo": "/Imagenes/base_metrobus_cu.jpg",
+      "routes": [
+        2,
+        4,
+        6,
+        8,
+        9,
+        11
+      ]
+    },
+    {
+      "id": "metrobus_cu",
+      "name": "Metrobús CU",
+      "lat": 19.3237,
+      "lon": -99.187908,
+      "description": "Parada que se encuentra inmediatamente bajando del espiral del Metrobús C.U.",
+      "photo": "/Imagenes/metrobus_cu.jpg",
+      "routes": [
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "id": "educacion_a_distancia",
+      "name": "Educación a Distancia",
+      "lat": 19.322429,
+      "lon": -99.186881,
+      "description": "Estación frente a la entrada de la Coordinación de Universidad Abierta y Educación a Distancia.",
+      "photo": "/Imagenes/educacion_a_distancia.jpg",
+      "routes": [
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "id": "dgtic",
+      "name": "DGTIC",
+      "lat": 19.322794,
+      "lon": -99.184698,
+      "description": "Parada frente a la Dirección General de Cómputo y Tecnologías de Información y Comunicación.",
+      "photo": "/Imagenes/dgtic.jpg",
+      "routes": [
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "id": "facultad_de_ciencias",
+      "name": "Facultad de Ciencias",
+      "lat": 19.32224,
+      "lon": -99.179108,
+      "description": "Estación frente al estacionamiento de estudiantes de la Facultad de Ciencias. También se encuentra cerca del Instituto de Investigaciones Antropológicas.",
+      "photo": "/Imagenes/facultad_de_ciencias.jpg",
+      "routes": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": "tienda_unam_ii",
+      "name": "Tienda UNAM 2",
+      "lat": 19.320185,
+      "lon": -99.176323,
+      "description": "Parada frente a Tienda UNAM. Cerca también se encuentra la Facultad de Ciencias Políticas y Sociales y la Filmoteca UNAM.",
+      "photo": "/Imagenes/tienda_unam_ii.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "facultad_de_ciencias_politicas",
+      "name": "Facultad de Ciencias Políticas",
+      "lat": 19.317803,
+      "lon": -99.176395,
+      "description": "Estación frente a la Facultad de Ciencias Políticas y Sociales. Cerca se encuentra TV UNAM.",
+      "photo": "/Imagenes/facultad_de_ciencias_politicas.jpg",
+      "routes": [
+        3,
+        10,
+        13
+      ]
+    },
+    {
+      "id": "investigaciones_juridicas_ii",
+      "name": "Investigaciones Jurídicas 2",
+      "lat": 19.317218,
+      "lon": -99.180692,
+      "description": "Estación frente al estacionamiento del Instituto de Investigaciones Jurídicas. En el mismo conjunto se encuentra la Coordinación de Humanidades de la UNAM.",
+      "photo": "/Imagenes/investigaciones_juridicas_ii.jpg",
+      "routes": [
+        3,
+        10,
+        13
+      ]
+    },
+    {
+      "id": "biblioteca_nacional_ii",
+      "name": "Biblioteca Nacional 2",
+      "lat": 19.31546,
+      "lon": -99.186339,
+      "description": "Estación cerca de la Biblioteca y Hemeroteca Nacional. Cerca se encuentra la estación del Metrobús Centro Cultural Universitario.",
+      "photo": "/Imagenes/biblioteca_nacional_ii.jpg",
+      "routes": [
+        3,
+        10,
+        13
+      ]
+    },
+    {
+      "id": "zona_cultural",
+      "name": "Zona Cultural",
+      "lat": 19.314609,
+      "lon": -99.186274,
+      "description": "Estación del Pumabús frente al Centro Cultural Universitario. Cerca se encuentra el MUAC, las salas de cine de la UNAM, etc. Además se encuentra frente a la para del Metrobús Centro Cultural Universitario.",
+      "photo": "/Imagenes/zona_cultural.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "unidad_de_posgrado",
+      "name": "Unidad de Posgrado",
+      "lat": 19.309114,
+      "lon": -99.185975,
+      "description": "Parada frente a la Unidad de Posgrado de la UNAM. Cerca se encuentra el Resguardo Vehicular de la UNAM.",
+      "photo": "/Imagenes/unidad_de_posgrado.jpg",
+      "routes": [
+        3,
+        10,
+        13
+      ]
+    },
+    {
+      "id": "posgrado_de_economia",
+      "name": "Posgrado de Economía",
+      "lat": 19.311482,
+      "lon": -99.185848,
+      "description": "Estación del Pumabús que se encuentra frente a la División de Estudios de Posgrado de la Facultad de Economía.",
+      "photo": "/Imagenes/posgrado_de_economia.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "dgire",
+      "name": "DGIRE",
+      "lat": 19.311801,
+      "lon": -99.184861,
+      "description": "Aquí se encuentra la Dirección General de Incorporación y Revalidación de Estudios. Cerca también se encuentra el Pabellón Nacional de la Biodiversidad.",
+      "photo": "/Imagenes/dgire.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "dgapa",
+      "name": "DGAPA",
+      "lat": 19.310794,
+      "lon": -99.182139,
+      "description": "Cerca de aquí se encuentra la Dirección General de Asuntos del Personal Académico. También podemos encontrar la Dirección General de Asuntos Jurídicos y la Defensoría de la UNAM.",
+      "photo": "/Imagenes/dgapa.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "archivo_general",
+      "name": "Archivo General",
+      "lat": 19.309843,
+      "lon": -99.180388,
+      "description": "Estación del pumabús frente al Archivo General de la UNAM. Cerca también de encuentra la Dirección General del Patrimonio Universitario.",
+      "photo": "/Imagenes/archivo_general.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "avenida_iman",
+      "name": "Avenida IMAN",
+      "lat": 19.308123,
+      "lon": -99.18012,
+      "description": "Parada cerca de la salida del campus hacia la Avenida del Imán. Cerca se encuentra el Local de Registro de Aspirantes de la UNAM.",
+      "photo": "/Imagenes/avenida_iman.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "investigaciones_filosoficas",
+      "name": "Investigaciones Filosóficas",
+      "lat": 19.313973,
+      "lon": -99.180117,
+      "description": "Estación del Pumabús frente al Instituto de Investigaciones Filosóficas. Complejo de la Coordinación de Humanidades.",
+      "photo": "/Imagenes/investigaciones_filosoficas.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "investigaciones_filologicas",
+      "name": "Investigaciones Filológicas",
+      "lat": 19.314057,
+      "lon": -99.181048,
+      "description": "Estación del Pumabús frente al Instituto de Investigaciones Filológicas. Complejo de la Coordinación de Humanidades.",
+      "photo": "/Imagenes/investigaciones_filologicas.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "coordinacion_de_humanidades",
+      "name": "Coordinación de Humanidades",
+      "lat": 19.314112,
+      "lon": -99.181504,
+      "description": "Estación frente al Complejo de la Coordinación de Humanidades de la UNAM.",
+      "photo": "/Imagenes/coordinacion_de_humanidades.jpg",
+      "routes": [
+        3,
+        10,
+        13
+      ]
+    },
+    {
+      "id": "universum",
+      "name": "UNIVERSUM",
+      "lat": 19.311708,
+      "lon": -99.182157,
+      "description": "Parada del pumabús frente al museo de ciencias Universum.",
+      "photo": "/Imagenes/universum.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "teatro_y_danza",
+      "name": "Teatro y Danza",
+      "lat": 19.311979,
+      "lon": -99.18464,
+      "description": "Estación cerca de los auditorios de teatro de la UNAM. A un lado se encuentra el Pabellón Nacional de la Biodiversidad.",
+      "photo": "/Imagenes/teatro_y_danza.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "muac",
+      "name": "MUAC",
+      "lat": 19.314585,
+      "lon": -99.185983,
+      "description": "Estación del Museo Nacional de Arte Conteporáneo. Enfrente se encuentra el Metrobús Centro Cultural Universitario.",
+      "photo": "/Imagenes/MUAC.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "biblioteca_nacional",
+      "name": "Biblioteca Nacional",
+      "lat": 19.315779,
+      "lon": -99.186118,
+      "description": "Estación frente a la Biblioteca y Hemeroteca Nacional.",
+      "photo": "/Imagenes/biblioteca_nacional.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "espacio_escultorico",
+      "name": "Espacio Escultórico",
+      "lat": 19.317337,
+      "lon": -99.183628,
+      "description": "Parada frente al Espacio Escultórico.",
+      "photo": "/Imagenes/espacio_escultorico.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "investigaciones_juridicas",
+      "name": "Investigaciones Jurídicas",
+      "lat": 19.316871,
+      "lon": -99.180456,
+      "description": "Estación del pumabus ubicada a un lado del Instituto de Investigaciones Jurídicas, que se encarga de la investigación y difusión del derecho, cerca del espacio escultórico",
+      "photo": "/Imagenes/investigaciones_juridicas.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "tv_unam",
+      "name": "T.V. UNAM",
+      "lat": 19.317589,
+      "lon": -99.176283,
+      "description": "Parada del pumabus que se ubica en la entrada de T.V. UNAM, encargada de gestionar todo aquello relacionado con la televisión universitaria.",
+      "photo": "/Imagenes/tv_unam.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "cuec",
+      "name": "CUEC",
+      "lat": 19.318898,
+      "lon": -99.175791,
+      "description": "Estación ubicada en la entrada del Centro Universitario de Estudios Cinematográficos (CUEC), cerca de la estación de T.V. UNAM.",
+      "photo": "/Imagenes/CUEC.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "dgsa",
+      "name": "DGSA",
+      "lat": 19.320415,
+      "lon": -99.176093,
+      "description": "Estación ubicada en la entrada de la Dirección General de Servicios Administrativos (DGSA), a un lado de Tienda UNAM.",
+      "photo": "/Imagenes/DGSA.jpg",
+      "routes": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": "tienda_unam",
+      "name": "Tienda UNAM",
+      "lat": 19.321273,
+      "lon": -99.176272,
+      "description": "Estación del pumabus ubicada junto a Tienda UNAM, cercad el metro Universdidad.",
+      "photo": "/Imagenes/tienda_unam.jpg",
+      "routes": [
+        3
+      ]
+    },
+    {
+      "id": "estadio_de_practicas",
+      "name": "Estadio de Prácticas",
+      "lat": 19.326728,
+      "lon": -99.18808,
+      "description": "Estación ubicada junto al estadio de prácticas 'Humberto Tapatío Méndez'.",
+      "photo": "/Imagenes/estadio_de_practicas.jpg",
+      "routes": [
+        4,
+        6,
+        8,
+        9,
+        11,
+        13
+      ]
+    },
+    {
+      "id": "campos_de_futbol_i",
+      "name": "Campos de futbol I",
+      "lat": 19.324001,
+      "lon": -99.192165,
+      "description": "Estación que se encuentra junto a los campos de fútbol de la zona deportiva de la Ciudad Universitaria.",
+      "photo": "/Imagenes/campos_de_futbol_i.jpg",
+      "routes": [
+        4,
+        6,
+        10
+      ]
+    },
+    {
+      "id": "jardin_botanico",
+      "name": "Jardín Botánico",
+      "lat": 19.321305,
+      "lon": -99.193036,
+      "description": "Estación del pumabus ubicadda frente al Jardín Botánico. Este jardín es un espacio natural que alberga una gran variedad de plantas y árboles, ideal para pasear y disfrutar de la naturaleza.",
+      "photo": "/Imagenes/jardin_botanico.jpg",
+      "routes": [
+        4,
+        6,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "campos_de_futbol_ii",
+      "name": "Campos de futbol II",
+      "lat": 19.323273,
+      "lon": -99.192057,
+      "description": "Parada ubicada a un lado de los campos de fútbol ubicados junto al Jardín Botánico.",
+      "photo": "/Imagenes/campos_de_futbol_ii.jpg",
+      "routes": [
+        4,
+        6,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "medicina",
+      "name": "Medicina",
+      "lat": 19.334562,
+      "lon": -99.17981,
+      "description": "Estación ubicada a un lado de Copilco y de la Facultad de Medicina.",
+      "photo": "/Imagenes/Medicina.jpg",
+      "routes": [
+        5
+      ]
+    },
+    {
+      "id": "odontologia",
+      "name": "Odontología",
+      "lat": 19.334863,
+      "lon": -99.180801,
+      "description": "Estación ubicada en la entrada de la Facultad de Odontología a un lado de Copilco y de la Facultad de Medicina.",
+      "photo": "/Imagenes/Odontologia.jpg",
+      "routes": [
+        5
+      ]
+    },
+    {
+      "id": "economia",
+      "name": "Economía",
+      "lat": 19.335579,
+      "lon": -99.182972,
+      "description": "Parada del pumabus ubicada en la entrada de la Facultad de Economía, a un lado de Copilco y de 'Las Islas'",
+      "photo": "/Imagenes/Economia.jpg",
+      "routes": [
+        5
+      ]
+    },
+    {
+      "id": "av_universidad",
+      "name": "Av. Universidad",
+      "lat": 19.336215,
+      "lon": -99.18573,
+      "description": "Parada ubicada en el acceso a la Av. Unversidad, entre la facultad de Economía y Derecho.",
+      "photo": "/Imagenes/av_universidad.jpg",
+      "routes": [
+        5
+      ]
+    },
+    {
+      "id": "derecho",
+      "name": "Derecho",
+      "lat": 19.335367,
+      "lon": -99.184761,
+      "description": "Parada localizada en la entrada de la Facultad de Derecho, cerca de la entrada de Copilco.",
+      "photo": "/Imagenes/Derecho.jpg",
+      "routes": [
+        5
+      ]
+    },
+    {
+      "id": "filosofia",
+      "name": "Filosofía",
+      "lat": 19.334947,
+      "lon": -99.18724,
+      "description": "Estación que se encuentra en la entrada de la Facultad de Filosofía y Letras, entre Psicología y Derecho.",
+      "photo": "/Imagenes/Filosofia.jpg",
+      "routes": [
+        5
+      ]
+    },
+    {
+      "id": "facultad_de_psicologia",
+      "name": "Facultad de Psicología",
+      "lat": 19.334647,
+      "lon": -99.189168,
+      "description": "Parada que se encuentra en la Facultad de Psicología, caminando un poco se llega al acceso a Insurgentes Norte.",
+      "photo": "/Imagenes/facultad_de_psicologia.jpg",
+      "routes": [
+        5,
+        7
+      ]
+    },
+    {
+      "id": "base_estadio_olimpico",
+      "name": "Base Estadio Olímpico",
+      "lat": 19.333553,
+      "lon": -99.19058,
+      "description": "Estación que se encuentra en la Base del Estadio Olímpico.",
+      "photo": "/Imagenes/base_estadio_olimpico.png",
+      "routes": [
+        6,
+        7,
+        8,
+        12
+      ]
+    },
+    {
+      "id": "pumitas_i",
+      "name": "Pumitas I",
+      "lat": 19.324544,
+      "lon": -99.194259,
+      "description": "stación que se encuentra a un lado de la zona deportiva de la Ciudad Universitaria.",
+      "photo": "/Imagenes/pumitas_i.jpg",
+      "routes": [
+        6
+      ]
+    },
+    {
+      "id": "pista_de_calentamiento_i",
+      "name": "Pista de calentamiento I",
+      "lat": 19.326261,
+      "lon": -99.194343,
+      "description": "Estación ubicada a un lado de la zona deportiva de la ciudad universitaria, cerca de la pista de calentamiento.",
+      "photo": "/Imagenes/pista_de_calentamiento_i.jpg",
+      "routes": [
+        6
+      ]
+    },
+    {
+      "id": "pista_de_calentamiento_ii",
+      "name": "Pista de calentamiento II",
+      "lat": 19.326385,
+      "lon": -99.19487,
+      "description": "Estación ubicada a un lado de la zona deportiva de la ciudad universitaria, cerca de la pista de calentamiento.",
+      "photo": "/Imagenes/pista_de_calentamiento_ii.jpg",
+      "routes": [
+        6,
+        11
+      ]
+    },
+    {
+      "id": "pumitas_ii",
+      "name": "Pumitas II",
+      "lat": 19.324465,
+      "lon": -99.194868,
+      "description": "Estación que se encuentra a un lado de la zona deportiva de la Ciudad Universitaria.",
+      "photo": "/Imagenes/pumitas_ii.jpg",
+      "routes": [
+        6,
+        11
+      ]
+    },
+    {
+      "id": "investigaciones_biomedicas",
+      "name": "Investigaciones Biomédicas",
+      "lat": 19.32314,
+      "lon": -99.189661,
+      "description": "Parada ubicada en la entrada del Instituto de Investigaciones Biomédicas.",
+      "photo": "/Imagenes/investigaciones_biomedicas.jpg",
+      "routes": [
+        6,
+        10
+      ]
+    },
+    {
+      "id": "base_metrobus_cu_ii",
+      "name": "Metrobús CU-2",
+      "lat": 19.324123,
+      "lon": -99.189455,
+      "description": "Estación ubicada en la entrada al metrobus Ciudad Universitaria.",
+      "photo": "/Imagenes/base_metrobus_cu_ii.jpg",
+      "routes": [
+        6,
+        10,
+        13
+      ]
+    },
+    {
+      "id": "facultad_de_ciencias_profesores",
+      "name": "Facultad de Ciencias Profesores",
+      "lat": 19.324896,
+      "lon": -99.181744,
+      "description": "Parada que se encuentra frente al estacionamiento para profesores en la Facultad de Ciencias.",
+      "photo": "/Imagenes/facultad_de_ciencias_profesores.jpg",
+      "routes": [
+        6
+      ]
+    },
+    {
+      "id": "investigacion_cientifica",
+      "name": "Investigación Científica",
+      "lat": 19.326454,
+      "lon": -99.180489,
+      "description": "Estación que se encuentra a un lado de la Facultad de Ciencias, aquí se enceuntran diferentes Institutos relacionados a la investigación científicas.",
+      "photo": "/Imagenes/investigacion_cientifica.jpg",
+      "routes": [
+        6
+      ]
+    },
+    {
+      "id": "ciencias_del_mar",
+      "name": "Ciencias del Mar",
+      "lat": 19.328665,
+      "lon": -99.179215,
+      "description": "Estación ubiaca en el Instituto de Ciencias del Mar y Limnología.",
+      "photo": "/Imagenes/ciencias_del_mar.jpg",
+      "routes": [
+        6
+      ]
+    },
+    {
+      "id": "invernadero",
+      "name": "Invernadero",
+      "lat": 19.328982,
+      "lon": -99.179916,
+      "description": "Estación ubicada en medio del Anexo de Ingeniería y del Instituto de Investigaciones Biomédicas.",
+      "photo": "/Imagenes/Invernadero.jpg",
+      "routes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "anexo_de_ingenieria",
+      "name": "Anexo de Ingeniería",
+      "lat": 19.32699,
+      "lon": -99.181008,
+      "description": "Parada localizada a un lado del Anexo de Ingeniería.",
+      "photo": "/Imagenes/anexo_de_ingenieria.jpg",
+      "routes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "camino_verde",
+      "name": "Camino Verde",
+      "lat": 19.325626,
+      "lon": -99.181983,
+      "description": "Estación ubicada frene a la entrada del Anexo de Ingeniería, a un lado se encuentra la Facultad de Ciencias.",
+      "photo": "/Imagenes/camino_verde.jpg",
+      "routes": [
+        6,
+        8,
+        9,
+        13
+      ]
+    },
+    {
+      "id": "muca",
+      "name": "MUCA",
+      "lat": 19.330289,
+      "lon": -99.189021,
+      "description": "Para del pumabus ubicada a un lado del Museo Universitario de Ciencias y Arte (MUCA), a un lado de la Facultad de Arquitectura.",
+      "photo": "/Imagenes/MUCA.jpg",
+      "routes": [
+        6,
+        8,
+        9,
+        11
+      ]
+    },
+    {
+      "id": "estacionamiento_8",
+      "name": "Estacionamiento 8",
+      "lat": 19.330031,
+      "lon": -99.190492,
+      "description": "Parada del pumabus ubicada en la zona del estacionamiento 8 del Estadio Olímpico Universitario",
+      "photo": "/Imagenes/estacionamiento_8.jpg",
+      "routes": [
+        6,
+        7,
+        8,
+        11,
+        12
+      ]
+    },
+    {
+      "id": "estacionamiento_7",
+      "name": "Estacionamiento 7",
+      "lat": 19.32914,
+      "lon": -99.192403,
+      "description": "Parada del pumabus ubicada en la zona del estacionamiento 7 del Estadio Olímpico Universitario",
+      "photo": "/Imagenes/estacionamiento_7.jpg",
+      "routes": [
+        6,
+        7,
+        8,
+        11,
+        12
+      ]
+    },
+    {
+      "id": "estacionamiento_6",
+      "name": "Estacionamiento 6",
+      "lat": 19.330281,
+      "lon": -99.19339,
+      "description": "Parada del pumabus ubicada en la zona del estacionamiento 6 del Estadio Olímpico Universitario",
+      "photo": "/Imagenes/estacionamiento_6.jpg",
+      "routes": [
+        6,
+        7,
+        8,
+        12
+      ]
+    },
+    {
+      "id": "estacionamiento_4",
+      "name": "Estacionamiento 4",
+      "lat": 19.331249,
+      "lon": -99.194159,
+      "description": "Parada del pumabus ubicada en la zona del estacionamiento 4 del Estadio Olímpico Universitario",
+      "photo": "/Imagenes/estacionamiento_4.jpg",
+      "routes": [
+        6,
+        7,
+        8,
+        12
+      ]
+    },
+    {
+      "id": "estacionamiento_3",
+      "name": "Estacionamiento 3",
+      "lat": 19.332609,
+      "lon": -99.194618,
+      "description": "Parada del pumabus ubicada en la zona del estacionamiento 3 del Estadio Olímpico Universitario",
+      "photo": "/Imagenes/estacionamiento_3.jpg",
+      "routes": [
+        6,
+        7,
+        8,
+        12
+      ]
+    },
+    {
+      "id": "estacionamiento_2",
+      "name": "Estacionamiento 2",
+      "lat": 19.333481,
+      "lon": -99.193248,
+      "description": "Parada del pumabus ubicada en la zona del estacionamiento 2 del Estadio Olímpico Universitario",
+      "photo": "/Imagenes/estacionamiento_2.jpg",
+      "routes": [
+        6,
+        7,
+        8,
+        12
+      ]
+    },
+    {
+      "id": "centro_medico",
+      "name": "Centro Médico",
+      "lat": 19.330166,
+      "lon": -99.187746,
+      "description": "Esta parada se encuenta en la Dirección General de Atención a la Salud, a un lado de la Facultad de Arquitectura.",
+      "photo": "/Imagenes/centro_medico.jpg",
+      "routes": [
+        8
+      ]
+    },
+    {
+      "id": "alberca",
+      "name": "Alberca",
+      "lat": 19.330423,
+      "lon": -99.186299,
+      "description": "Esta parada se encuentra frente a la alberca y gimnasio de Ciudad Universitaria, se encuentra a un lado de la Facultad de Arquitectura.",
+      "photo": "/Imagenes/alberca.jpg",
+      "routes": [
+        8
+      ]
+    },
+    {
+      "id": "ingenieria",
+      "name": "Ingeniería",
+      "lat": 19.330537,
+      "lon": -99.184627,
+      "description": "Estación que se encuentra a un lado de la facultad de Ingeniería",
+      "photo": "/Imagenes/Ingenieria.jpg",
+      "routes": [
+        8
+      ]
+    },
+    {
+      "id": "frontones",
+      "name": "Frontones",
+      "lat": 19.330508,
+      "lon": -99.183035,
+      "description": "Estación ubicada al lado de la Torre de Ingeniería, al lado de la facultad de Química y del ENALLT.",
+      "photo": "/Imagenes/Frontones.jpg",
+      "routes": [
+        8
+      ]
+    },
+    {
+      "id": "iimas",
+      "name": "IIMAS",
+      "lat": 19.330637,
+      "lon": -99.180773,
+      "description": "Parada que se encuentra frente al IIMAS (Instituto de Investigaciones en Matemáticas Avanzadas y Sistemas), también ubicada a un lado de la Facultad de Química.",
+      "photo": "/Imagenes/IIMAS.jpg",
+      "routes": [
+        8
+      ]
+    },
+    {
+      "id": "relaciones_laborales",
+      "name": "Relaciones Laborales",
+      "lat": 19.334262,
+      "lon": -99.191047,
+      "description": "Parada ubicada en el centro de Relaciones Laborales, a un lado del estadio Olímpico Universitario y del edificio C del ENALLT.",
+      "photo": "/Imagenes/relaciones_laborales.jpg",
+      "routes": [
+        11,
+        12
+      ]
+    },
+    {
+      "id": "direccion_general_de_obras_proveeduria",
+      "name": "Dirección General de Obras/Proveeduría",
+      "lat": 19.335055,
+      "lon": -99.192944,
+      "description": "Estación ubicada en la Dirección General de Obras, a un lado del Estadio Olímpico Universitario.",
+      "photo": "/Imagenes/direccion_general_de_obras.jpg",
+      "routes": [
+        11,
+        12
+      ]
+    },
+    {
+      "id": "aapaunam",
+      "name": "AAPAUNAM",
+      "lat": 19.334356,
+      "lon": -99.195324,
+      "description": "Estación que se encuentra a un lado de AAPAUNAM, caminando un poco se encuentra el edificio C del ENALLT.",
+      "photo": "/Imagenes/AAPAUNAM.jpg",
+      "routes": [
+        11,
+        12
+      ]
+    },
+    {
+      "id": "posgrado_de_filosofia",
+      "name": "Posgrado de Filosofía",
+      "lat": 19.332665,
+      "lon": -99.196281,
+      "description": "Esta parada se encuentra frente al Posgrado de Filosofía.",
+      "photo": "/Imagenes/posgrado_de_filosofia.jpg",
+      "routes": [
+        11
+      ]
+    },
+    {
+      "id": "anexo_de_filosofia",
+      "name": "Anexo de Filosofía",
+      "lat": 19.332353,
+      "lon": -99.196094,
+      "description": "Parada que se encuentra frente al Anexo de Filosofía.",
+      "photo": "/Imagenes/posgrado_de_filosofia.jpg",
+      "routes": [
+        12
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "id": "R1",
+      "name": "Ruta 1",
+      "color": "#2e9e48",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_metro_universidad",
+        "cendi",
+        "psiquiatria_y_salud_mental",
+        "facultad_de_quimica",
+        "enallt_edif_a_y_b",
+        "facultad_de_ingenieria",
+        "facultad_de_arquitectura",
+        "rectoria",
+        "psicologia",
+        "facultad_de_filosofia",
+        "facultad_de_derecho",
+        "facultad_de_economia",
+        "facultad_de_odontologia",
+        "facultad_de_medicina",
+        "facultad_de_veterinaria",
+        "instituto_de_geofisica",
+        "quimica_conjunto_d_y_e"
+      ]
+    },
+    {
+      "id": "R2",
+      "name": "Ruta 2",
+      "color": "#f2d21b",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_metro_universidad",
+        "quimica_conjunto_d_y_e",
+        "facultad_de_ciencias_alumnos",
+        "facultad_de_ciencias_camino_verde",
+        "facultad_de_contaduria_y_administracion",
+        "escuela_de_trabajo_social",
+        "base_metrobus_cu",
+        "metrobus_cu",
+        "educacion_a_distancia",
+        "dgtic",
+        "facultad_de_ciencias"
+      ]
+    },
+    {
+      "id": "R3",
+      "name": "Ruta 3",
+      "color": "#1f6b35",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_metro_universidad",
+        "quimica_conjunto_d_y_e",
+        "tienda_unam_ii",
+        "facultad_de_ciencias_politicas",
+        "investigaciones_juridicas_ii",
+        "biblioteca_nacional_ii",
+        "zona_cultural",
+        "unidad_de_posgrado",
+        "posgrado_de_economia",
+        "dgire",
+        "dgapa",
+        "archivo_general",
+        "avenida_iman",
+        "investigaciones_filosoficas",
+        "investigaciones_filologicas",
+        "coordinacion_de_humanidades",
+        "universum",
+        "teatro_y_danza",
+        "muac",
+        "biblioteca_nacional",
+        "espacio_escultorico",
+        "investigaciones_juridicas",
+        "tv_unam",
+        "cuec",
+        "dgsa",
+        "tienda_unam"
+      ]
+    },
+    {
+      "id": "R4",
+      "name": "Ruta 4",
+      "color": "#6b4a2f",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_metro_universidad",
+        "quimica_conjunto_d_y_e",
+        "facultad_de_ciencias_alumnos",
+        "facultad_de_ciencias_camino_verde",
+        "facultad_de_contaduria_y_administracion",
+        "escuela_de_trabajo_social",
+        "base_metrobus_cu",
+        "estadio_de_practicas",
+        "campos_de_futbol_i",
+        "jardin_botanico",
+        "campos_de_futbol_ii",
+        "metrobus_cu",
+        "educacion_a_distancia",
+        "dgtic",
+        "facultad_de_ciencias"
+      ]
+    },
+    {
+      "id": "R5",
+      "name": "Ruta 5",
+      "color": "#1e9ad6",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_metro_universidad",
+        "cendi",
+        "psiquiatria_y_salud_mental",
+        "medicina",
+        "odontologia",
+        "economia",
+        "av_universidad",
+        "derecho",
+        "filosofia",
+        "facultad_de_psicologia",
+        "psicologia",
+        "facultad_de_filosofia",
+        "facultad_de_derecho",
+        "facultad_de_economia",
+        "facultad_de_odontologia",
+        "facultad_de_medicina",
+        "facultad_de_veterinaria",
+        "instituto_de_geofisica",
+        "quimica_conjunto_d_y_e"
+      ]
+    },
+    {
+      "id": "R6",
+      "name": "Ruta 6",
+      "color": "#9e1b32",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_estadio_olimpico",
+        "campos_de_futbol_i",
+        "pista_de_calentamiento_i",
+        "pumitas_i",
+        "pista_de_calentamiento_ii",
+        "pumitas_ii",
+        "jardin_botanico",
+        "campos_de_futbol_ii",
+        "investigaciones_biomedicas",
+        "base_metrobus_cu_ii",
+        "metrobus_cu",
+        "educacion_a_distancia",
+        "dgtic",
+        "facultad_de_ciencias_profesores",
+        "investigacion_cientifica",
+        "ciencias_del_mar",
+        "invernadero",
+        "anexo_de_ingenieria",
+        "camino_verde",
+        "facultad_de_contaduria_y_administracion",
+        "escuela_de_trabajo_social",
+        "base_metrobus_cu",
+        "estadio_de_practicas",
+        "muca",
+        "estacionamiento_8",
+        "estacionamiento_7",
+        "estacionamiento_6",
+        "estacionamiento_4",
+        "estacionamiento_3",
+        "estacionamiento_2"
+      ]
+    },
+    {
+      "id": "R7",
+      "name": "Ruta 7",
+      "color": "#f0a030",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_estadio_olimpico",
+        "facultad_de_psicologia",
+        "facultad_de_filosofia",
+        "facultad_de_derecho",
+        "facultad_de_economia",
+        "facultad_de_odontologia",
+        "facultad_de_medicina",
+        "facultad_de_quimica",
+        "enallt_edif_a_y_b",
+        "facultad_de_ingenieria",
+        "facultad_de_arquitectura",
+        "estacionamiento_8",
+        "estacionamiento_7",
+        "estacionamiento_6",
+        "estacionamiento_4",
+        "estacionamiento_3",
+        "estacionamiento_2"
+      ]
+    },
+    {
+      "id": "R8",
+      "name": "Ruta 8",
+      "color": "#26357a",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_estadio_olimpico",
+        "centro_medico",
+        "alberca",
+        "ingenieria",
+        "frontones",
+        "iimas",
+        "invernadero",
+        "anexo_de_ingenieria",
+        "camino_verde",
+        "facultad_de_contaduria_y_administracion",
+        "escuela_de_trabajo_social",
+        "base_metrobus_cu",
+        "estadio_de_practicas",
+        "muca",
+        "estacionamiento_8",
+        "estacionamiento_7",
+        "estacionamiento_6",
+        "estacionamiento_4",
+        "estacionamiento_3",
+        "estacionamiento_2"
+      ]
+    },
+    {
+      "id": "R9",
+      "name": "Ruta 9",
+      "color": "#a3237d",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_metrobus_cu",
+        "estadio_de_practicas",
+        "muca",
+        "rectoria",
+        "psicologia",
+        "facultad_de_filosofia",
+        "facultad_de_derecho",
+        "facultad_de_economia",
+        "facultad_de_odontologia",
+        "facultad_de_medicina",
+        "invernadero",
+        "anexo_de_ingenieria",
+        "camino_verde",
+        "facultad_de_contaduria_y_administracion",
+        "escuela_de_trabajo_social"
+      ]
+    },
+    {
+      "id": "R10",
+      "name": "Ruta 10",
+      "color": "#1c1c1c",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_metrobus_cu_ii",
+        "campos_de_futbol_i",
+        "jardin_botanico",
+        "campos_de_futbol_ii",
+        "investigaciones_biomedicas",
+        "biblioteca_nacional_ii",
+        "zona_cultural",
+        "unidad_de_posgrado",
+        "posgrado_de_economia",
+        "dgire",
+        "dgapa",
+        "archivo_general",
+        "avenida_iman",
+        "investigaciones_filosoficas",
+        "investigaciones_filologicas",
+        "coordinacion_de_humanidades",
+        "universum",
+        "teatro_y_danza",
+        "muac",
+        "biblioteca_nacional",
+        "espacio_escultorico",
+        "investigaciones_juridicas",
+        "tv_unam",
+        "cuec",
+        "dgsa",
+        "tienda_unam_ii",
+        "facultad_de_ciencias_politicas",
+        "investigaciones_juridicas_ii"
+      ]
+    },
+    {
+      "id": "R11",
+      "name": "Ruta 11",
+      "color": "#5b2c8f",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_metrobus_cu",
+        "estadio_de_practicas",
+        "muca",
+        "estacionamiento_8",
+        "estacionamiento_7",
+        "relaciones_laborales",
+        "direccion_general_de_obras_proveeduria",
+        "aapaunam",
+        "posgrado_de_filosofia",
+        "pista_de_calentamiento_ii",
+        "pumitas_ii",
+        "jardin_botanico",
+        "campos_de_futbol_ii"
+      ]
+    },
+    {
+      "id": "R12",
+      "name": "Ruta 12",
+      "color": "#d98fd0",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "base_estadio_olimpico",
+        "psicologia",
+        "facultad_de_filosofia",
+        "facultad_de_derecho",
+        "facultad_de_economia",
+        "facultad_de_odontologia",
+        "facultad_de_medicina",
+        "facultad_de_quimica",
+        "enallt_edif_a_y_b",
+        "facultad_de_ingenieria",
+        "facultad_de_arquitectura",
+        "estacionamiento_8",
+        "estacionamiento_7",
+        "relaciones_laborales",
+        "direccion_general_de_obras_proveeduria",
+        "aapaunam",
+        "anexo_de_filosofia",
+        "estacionamiento_6",
+        "estacionamiento_4",
+        "estacionamiento_3",
+        "estacionamiento_2"
+      ]
+    },
+    {
+      "id": "R13",
+      "name": "Ruta 13",
+      "color": "#7fd6c2",
+      "wait_min": 8,
+      "circular": true,
+      "stops": [
+        "facultad_de_filosofia",
+        "facultad_de_derecho",
+        "camino_verde",
+        "biblioteca_nacional_ii",
+        "unidad_de_posgrado",
+        "coordinacion_de_humanidades",
+        "facultad_de_ciencias_politicas",
+        "investigaciones_juridicas_ii",
+        "base_metrobus_cu_ii",
+        "estadio_de_practicas"
+      ]
+    }
+  ]
+}
